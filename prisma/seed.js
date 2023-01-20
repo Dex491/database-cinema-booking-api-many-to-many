@@ -98,7 +98,7 @@ async function createScreenings(screens, movies) {
 }
 
 async function createTickets() {
-	const ticket = await prisma.ticket.create({
+	const ticket1 = await prisma.ticket.create({
 		data: {
 			screening: {
 				connect: {
@@ -112,10 +112,38 @@ async function createTickets() {
 			},
 		},
 	});
+	const ticket2 = await prisma.ticket.create({
+		data: {
+			screening: {
+				connect: {
+					id: 2,
+				},
+			},
+			customer: {
+				connect: {
+					id: 1,
+				},
+			},
+		},
+	});
+	const ticket3 = await prisma.ticket.create({
+		data: {
+			screening: {
+				connect: {
+					id: 3,
+				},
+			},
+			customer: {
+				connect: {
+					id: 1,
+				},
+			},
+		},
+	});
 }
 
 async function createSeats() {
-	const seat = await prisma.seat.create({
+	const seat1 = await prisma.seat.create({
 		data: {
 			seatNumber: 1,
 			screen: {
@@ -126,6 +154,81 @@ async function createSeats() {
 			tickets: {
 				connect: {
 					id: 1,
+				},
+			},
+		},
+	});
+	const seat2 = await prisma.seat.create({
+		data: {
+			seatNumber: 2,
+			screen: {
+				connect: {
+					id: 1,
+				},
+			},
+			tickets: {
+				connect: {
+					id: 1,
+				},
+			},
+		},
+	});
+	const seat3 = await prisma.seat.create({
+		data: {
+			seatNumber: 3,
+			screen: {
+				connect: {
+					id: 1,
+				},
+			},
+			tickets: {
+				connect: {
+					id: 1,
+				},
+			},
+		},
+	});
+	const seat4 = await prisma.seat.create({
+		data: {
+			seatNumber: 4,
+			screen: {
+				connect: {
+					id: 1,
+				},
+			},
+			tickets: {
+				connect: {
+					id: 2,
+				},
+			},
+		},
+	});
+	const seat5 = await prisma.seat.create({
+		data: {
+			seatNumber: 5,
+			screen: {
+				connect: {
+					id: 1,
+				},
+			},
+			tickets: {
+				connect: {
+					id: 2,
+				},
+			},
+		},
+	});
+	const seat6 = await prisma.seat.create({
+		data: {
+			seatNumber: 6,
+			screen: {
+				connect: {
+					id: 1,
+				},
+			},
+			tickets: {
+				connect: {
+					id: 3,
 				},
 			},
 		},
